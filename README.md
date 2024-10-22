@@ -23,3 +23,24 @@ This guide provides step-by-step instructions to install Docker and Jenkins on a
 3. Connect to your EC2 instance using SSH:
    ```bash
    ssh -i "Devops key.pem" ec2-user@3.25.55.93
+
+# Step-by-Step Guide to Setting Up AWS EKS
+
+## Step 1: Prerequisites
+
+1. **Create an AWS Account**:
+   - If you don't have an account, sign up at [AWS](https://aws.amazon.com/).
+
+2. **Install Required Tools**:
+   - **AWS CLI**: Follow the installation guide [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+   - **kubectl**: Install from the [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+   - **eksctl**: Install using the following command:
+     ```bash
+     curl --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+     sudo mv /tmp/eksctl /usr/local/bin
+     ```
+
+3. **Configure AWS CLI**:
+   ```bash
+   aws configure
+

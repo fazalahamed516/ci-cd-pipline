@@ -1,0 +1,34 @@
+## Step 2: Create an EKS Cluster
+Run the following command to create a new EKS cluster:
+
+bash
+eksctl create cluster --name my-cluster --region us-west-2 --nodes 3 --node-type t2.micro --with-oidc --ssh-access --ssh-public-key your-key-name
+#Replace my-cluster with your desired cluster name.
+#Replace your-key-name with the name of your existing SSH key pair.
+#Adjust the region, nodes, and node-type as needed.
+#Wait for the cluster to be created. This process may take several minutes.
+
+## Step 3: Configure kubectl
+1 Update your kubeconfig to connect to the new EKS cluster:
+ code: aws eks --region us-west-2 update-kubeconfig --name my-cluster
+2 Verify that kubectl is configured correctly:
+ code: kubectl get svc
+
+## step 4: Deploy an Application
+2 Apply the Deployment:
+ code: kubectl apply -f deployment.yaml
+3 Check the Pods
+ code:  kubectl get pods
+
+## Step 5: Expose Your Application 
+2 Apply the Service:
+ code: kubectl apply -f service.yaml
+3 Get the External IP:
+ code: kubectl get svc my-app-service
+ * Note the EXTERNAL-IP. It may take a few minutes to be assigned.
+ 
+## Step 6: Clean Up Resources
+1 Delete the EKS Cluster when you are finished:
+ code: eksctl delete cluster --name my-cluster --region us-west-2
+
+

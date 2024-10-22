@@ -1,0 +1,21 @@
+# Access Jenkins via web browser
+Visit http://13.236.44.158:8080
+# Get the initial admin password:
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+## Configure Jenkins to Use Docker
+Install the Docker Pipeline Plugin in Jenkins:
+
+Go to Manage Jenkins > Manage Plugins.
+Search for Docker Pipeline and install it.
+Configure Jenkins to use Docker:
+
+Jenkins will use the ec2-user for Docker commands.
+
+Create a CI/CD Pipeline in Jenkins
+Create a GitHub repository for your project.
+
+##Create a new Jenkins pipeline:
+
+Go to New Item > Select Pipeline.
+Configure the pipeline to point to your GitHub repository.
